@@ -27,12 +27,12 @@ function Contact() {
        
       </div>
 
-      <hr />
+      {/* <hr /> */}
 
       
 
       {/* Social Media Section */}
-      <h4 className="text-center mb-4">Follow Us</h4>
+      {/* <h4 className="text-center mb-4">Follow Us</h4>
       <div className="text-center">
         <a
           href="https://facebook.com/localmart"
@@ -58,7 +58,7 @@ function Contact() {
         >
           <i className="fab fa-instagram"></i> Instagram
         </a>
-      </div>
+      </div> */}
     </div>
   );
 }
