@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AboutUs() {
   return (
-    <div className="container mt-3">  {/* Reduced margin-top */}
+    <div className="container mt-3" style={{paddingLeft:"120px"}}>   {/* Reduced margin-top */}
       <h2 className="text-center mb-3" style={{ fontSize: '1.75rem', color:'ButtonHighlight'}}>About LocalMart</h2> {/* Smaller font-size */}
       
       <div className="row">

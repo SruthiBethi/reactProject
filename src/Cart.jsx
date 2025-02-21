@@ -2,17 +2,23 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPurchaseDetails, clearCart, decrement, increment, remove } from "./Store";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-
+  let navigate=useNavigate();
   const finalCart = cart.map((item, index) => (
     <li
       key={index}
       className="list-group-item d-flex justify-content-between align-items-center shadow-sm mb-2"
     >
-      <div>
+      <div className="d-flex align-items-center">
+      <img src={item.image}
+          alt={item.name}
+          className="me-3"
+          style={{width:"50px", height:"50px", objectFit:"cover", borderRadius:"5px"}}
+          />
         <strong>{item.name}</strong> - <span className="text-muted">${item.price}</span>
       </div>
       <div className="d-flex align-items-center">
@@ -78,8 +84,10 @@ function Cart() {
 
   const handleCompletePurchase = () => {
     const purchaseDate = new Date().toLocaleDateString();
+    const purchaseTime= new Date().toLocaleTimeString();
     let purchaseDetails = {
       date: purchaseDate,
+      time:purchaseTime,
       items: [...cart],
       totalAmount: totalAmount,
     };
@@ -87,34 +95,41 @@ function Cart() {
     dispatch(addPurchaseDetails(purchaseDetails));
   };
 
+  let auth=useSelector((state)=>state.auth);
+  let isAuthenticated=auth.isAuthenticated;
+
   return (
     <>
       {cart.length > 0 ? (
-        <div className="container mt-4">
+        <div className="container mt-4" style={{paddingLeft:"500px"}}>
+          {/* Centered Cart Title */}
           <h2 className="mb-4 text-center text-primary">Your Cart Items</h2>
+          
+          {/* Centered Cart Items */}
           <ul className="list-group mb-4">
             {finalCart}
           </ul>
 
-          {/* Displaying Total Amount */}
-          <div className="d-flex justify-content-between align-items-center mb-4">
+          {/* Centered Total Amount */}
+          <div className="d-flex justify-content-center align-items-center mb-4">
             <h5>Total Amount: <span className="text-success">${totalAmount.toFixed(2)}</span></h5>
           </div>
 
           {/* Discount Section */}
           {showDiscount && (
-            <div className="alert alert-info mb-3">
+            <div className="alert alert-info mb-3 text-center">
               <p>Discount Applied: <strong>{discountPercentage}%</strong></p>
               <p>Discount Amount: <strong>${discountAmount.toFixed(2)}</strong></p>
             </div>
           )}
 
-          <div className="d-flex justify-content-between align-items-center mb-4">
+          {/* Centered Net Amount */}
+          <div className="d-flex justify-content-center align-items-center mb-4">
             <h5>Net Amount To Pay: <strong>${finalAmount.toFixed(2)}</strong></h5>
           </div>
 
           {/* Discount Buttons */}
-          <div className="mb-4">
+          <div className="d-flex justify-content-center mb-4">
             <button
               className="btn btn-outline-success me-2"
               onClick={() => { setDiscountPercentage(10); setShowDiscount(true); }}
@@ -136,43 +151,54 @@ function Cart() {
           </div>
 
           {/* Coupon Code Section */}
-          <div className="mb-3">
+          <div className="mb-3 d-flex justify-content-center">
             <input
               type="text"
-              className="form-control"
+              className="form-control w-50"
               placeholder="Enter Coupon Code"
               value={couponCode}
               onChange={(e) => setCouponCode(e.target.value)}
             />
           </div>
 
-          <button
-            className="btn btn-warning mb-3"
-            onClick={() => handlingCoupenPer()}
-          >
-            Apply Coupon
-          </button>
+          {/* Centered Apply Coupon Button */}
+          <div className="d-flex justify-content-center mb-3">
+            <button
+              className="btn btn-warning"
+              onClick={() => handlingCoupenPer()}
+            >
+              Apply Coupon
+            </button>
+          </div>
 
           {/* Coupon Code Display */}
           {showCoupon && (
-            <div className="alert alert-info mb-4">
+            <div className="alert alert-info mb-4 text-center">
               <p>Your Coupon Code Applied: <strong>{couponCode}</strong></p>
               <p>Your Coupon Code Discount Amount: <strong>${couponDiscountAmount.toFixed(2)}</strong></p>
             </div>
           )}
 
-          {/* Complete Purchase Button */}
+          {/* Centered Complete Purchase Button */}
           <div className="text-center">
             <button
-              className="btn btn-danger btn-lg"
-              onClick={handleCompletePurchase}
+              className="btn btn-success btn-lg"
+             onClick={()=> 
+             isAuthenticated?
+             handleCompletePurchase()
+             :
+             
+             alert("please login to complete purchase",navigate("/login"))
+             }
             >
               Complete Purchase
             </button>
           </div>
         </div>
       ) : (
-        <h2 className="text-center mt-4 text-danger">Your Cart is Empty</h2>
+        <div className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+          <h2 className="text-center text-danger" style={{paddingLeft:"550px"}}>Your Cart is Empty</h2>
+        </div>
       )}
     </>
   );

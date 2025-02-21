@@ -22,8 +22,8 @@ function Login() {
     }
 
     return (
-        <div className="container-fluid d-flex justify-content-center align-items-center min-vh-100">
-            <div className="card p-4 shadow-sm" style={{ width: '400px' }}>
+        <div className="container-fluid d-flex justify-content-center align-items-center" style={{paddingLeft:"520px"}}>
+            <div className="card p-3 shadow-sm" style={{ width: '400px' }}>
                 {/* Heading with custom color */}
                 <h2 className="text-center mb-4 text-info">Login</h2>
 
@@ -40,7 +40,7 @@ function Login() {
                             id="username" 
                             ref={username} 
                             placeholder="Enter your username" 
-                            style={{ borderColor: '#17a2b8' }} 
+                            style={{ borderColor: '#17a2b8'}} 
                         />
                     </div>
                 </div>

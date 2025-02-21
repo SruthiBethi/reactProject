@@ -13,6 +13,7 @@ import { logout } from "./Store";
 import NotFound from "./NotFound";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './navbar.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App(){

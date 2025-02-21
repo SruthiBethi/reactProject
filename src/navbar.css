@@ -1,71 +1,87 @@
 .navbar {
-    display: flex;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: rgb(151, 218, 196);
-    color: white;
-    font-family: Arial, sans-serif;
-    position: sticky;
-    top: 0;
-    position: fixed;
-    width: 100%;
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  background-color: rgb(151, 218, 196);
+  color: white;
+  font-family: Arial, sans-serif;
+  position: fixed; /* Fix the navbar to the top */
+  top: 0; /* Keep it at the top */
+  left: 0; /* Align it to the left of the page */
+  width: 100%; /* Ensure it spans the full width of the page */
+  z-index: 9999; /* Make sure the navbar stays on top of other content */
+  flex-wrap: wrap; /* Allows items to wrap if they don't fit */
+}
+
+.navbar .class {
+  color: rgb(241, 225, 107);
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 15px;
+  margin: 0 15px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(156, 58, 161);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.navbar .class i {
+  margin-right: 8px;
+}
+
+.navbar .class:hover {
+  background-color: rgb(18, 79, 158);
+  border-radius: 4px;
+}
+
+.navbar .class span {
+  background-color: rgb(255, 0, 0);
+  border-radius: 50%;
+  padding: 3px 8px;
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.navbar span {
+  margin-right: 15px;
+  font-size: 16px;
+}
+
+.navbar button {
+  background-color: #ff4d4d;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar button:hover {
+  background-color: #ff1a1a;
+}
+
+/* Body or page content */
+body {
+  margin-top: 80px; /* Create space for the fixed navbar (adjust height if needed) */
+  padding: 0 20px; /* Optional: add padding to the left and right for content */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center; /* Center items in column layout */
   }
+
   .navbar .class {
-    color: rgb(241, 225, 107);
-    text-decoration: none;
-    font-size: 16px;
-    padding: 8px 15px;
-    margin: 0 15px;
-    display: flex;
-    align-items: center;
-    background-color: rgb(156, 58, 161);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 10px 0;
+  }
+
+  .navbar span, .navbar button {
+    margin-top: 10px;
+  }
+}
   
-  }
-  .navbar .class i {
-    margin-right: 8px;
-  }
-  .navbar .class:hover {
-    background-color: rgb(18, 79, 158);
-    border-radius: 4px;
-  }
-  .navbar .class span {
-    background-color: rgb(255, 0, 0);
-    border-radius: 50%;
-    padding: 3px 8px;
-    margin-left: 5px;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  .navbar span {
-    margin-right: 15px;
-    font-size: 16px;
-  }
-  .navbar button {
-    background-color: #ff4d4d;
-    border: none;
-    color: white;
-    font-size: 16px;
-    padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  .navbar button:hover {
-    background-color: #ff1a1a;
-  }
-  
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .navbar .class {
-      margin: 10px 0;
-    }
-  
-    .navbar span, .navbar button {
-      margin-top: 10px;
-    }
-  }

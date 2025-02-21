@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Home() {
   return (
-    <div className="container py-5">
+    <div className="container py-5" style={{paddingLeft:"125px"}}>
       <h3 className="text-center mb-4 text-primary">Welcome to LocalMart</h3>
       
       <div className="card">

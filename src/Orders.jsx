@@ -4,46 +4,47 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Orders() {
   const purchaseHistory = useSelector((state) => state.purchasDetails);
 
-  return (
-    <>
-      <div className="container mt-5">
-        <h2 className="text-center text-primary mb-4">Purchase History</h2>
-
-        {purchaseHistory.length === 0 ? (
-          <div className="alert alert-warning text-center">
-            No Purchase History Yet
-          </div>
-        ) : (
-          <ul className="list-group">
-            {purchaseHistory.map((purchase, index) => (
-              <li
-                key={index}
-                className="list-group-item shadow-sm mb-3 rounded"
-              >
-                <div className="d-flex justify-content-between align-items-center mb-3">
-                  <h5>
-                    <strong>Date:</strong> {purchase.date}
-                  </h5>
-                  
-                </div>
-
-                <ul className="list-group list-group-flush">
-                  {purchase.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="list-group-item">
-                      {item.name} - ${item.price} x {item.quantity}
-                    </li>
-                  ))}
-                </ul>
-                <h5>
-                    <strong>Total Amount:</strong> $
-                    {purchase.totalAmount.toFixed(2)}
-                  </h5>
-              </li>
-            ))}
-          </ul>
-        )}
+  const orderItems = purchaseHistory.map((purchase, index) => (
+    <div key={index} className="card mb-4 shadow-lg" style={{ maxWidth: "800px", margin: "0 auto", padding: "20px" }}>
+      <div className="card-body">
+        <p className="text-muted text-center fs-5">
+          <strong>Order Date:</strong> {purchase.date}  
+          <br />
+          <strong>Order Time:</strong> {purchase.time}
+        </p>
+        <hr />
+        <ul className="list-group mb-3">
+          <li className="list-group-item d-flex justify-content-between bg-primary text-white">
+            <strong>Item</strong>
+            <strong>Price</strong>
+            <strong>Quantity</strong>
+            <strong>Subtotal</strong>
+          </li>
+          {purchase.items.map((item, itemIndex) => (
+            <li key={itemIndex} className="list-group-item d-flex justify-content-between">
+              <span>{item.name}</span>
+              <span>${item.price}</span>
+              <span>{item.quantity}</span>
+              <span>${(item.price * item.quantity).toFixed(2)}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="d-flex justify-content-center mt-3">
+          <h5 className="fw-bold text-success">Total Amount: ${purchase.totalAmount}</h5>
+        </div>
       </div>
-    </>
+    </div>
+  ));
+
+  return (
+    <div className="container mt-4" style={{paddingLeft:"550px"}}>
+      <h2 className="mb-4 text-center text-primary fw-bold">Order History</h2>
+      {purchaseHistory.length === 0 ? (
+        <p className="alert alert-warning text-center">No purchase history available</p>
+      ) : (
+        <div>{orderItems}</div>
+      )}
+    </div>
   );
 }
 
