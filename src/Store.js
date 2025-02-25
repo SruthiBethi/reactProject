@@ -8,13 +8,13 @@ const productSlice=createSlice({
         {name:"Potato", price:100.0,image:'/potato.png'},
         {name:"Tomato", price:200, image:'/tomato.png'},
         {name:"Carrot", price:156, image:'/carrot.png'},
-        {name:"Cabbage", price:"25", image:'/cabbage.png'},
-        {name:"Califlower", price:"89", image:'/califlower.png'},
+        {name:"Cabbage", price:25, image:'/cabbage.png'},
+        {name:"Califlower", price:89, image:'/califlower.png'},
         {name:"Brinjal", price:56.0,image:'/brinjal.png'},
         {name:"Bottle Gaurd", price:89.23, image:'/bottle.png'},
         {name:"BitterGaurd", price:48.96, image:'/bitter.png'},
-        {name:"Spinach", price:"25", image:'/spinach.png'},
-        {name:"Broccoli", price:"89", image:'/broccoli.png'}
+        {name:"Spinach", price:25, image:'/spinach.png'},
+        {name:"Broccoli", price:89, image:'/broccoli.png'}
     ],
     nonVeg:[
         {name:"Fish", price:450, image:'/fish.png'},

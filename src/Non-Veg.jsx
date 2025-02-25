@@ -62,9 +62,7 @@ function NonVeg() {
       <div className="card">
         <img
           src={item.image}
-          alt={item.name}
-          className="card-img"
-          style={{ width: "300px", height: "300px", objectFit: "cover" }} 
+          className="img-fluid" alt="Responsive Image" 
         />
         <div className="card-body">
           <h5 className="card-title">{item.name}</h5>
