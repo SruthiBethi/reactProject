@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "./Store";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 function NonVeg() {
   const nonVegItems = useSelector((state) => state.products.nonVeg);
@@ -63,7 +64,7 @@ function NonVeg() {
           src={item.image}
           alt={item.name}
           className="card-img"
-          style={{ height: "200px", width: "400px", objectFit: "cover" }}
+          style={{ width: "300px", height: "300px", objectFit: "cover" }} 
         />
         <div className="card-body">
           <h5 className="card-title">{item.name}</h5>
@@ -99,6 +100,7 @@ function NonVeg() {
           value={searchQuery}
           onChange={handleSearchChange}
         />
+        <h3 className='text-success'>Filter By Price Range</h3>
         <div className="btn-group" role="group" aria-label="Price Filter">
           <button className={`btn btn-outline-primary ${priceFilter === 'all' ? 'active' : ''}`} onClick={() => handlePriceFilterChange('all')}>All</button>
           <button className={`btn btn-outline-primary ${priceFilter === 'below-120' ? 'active' : ''}`} onClick={() => handlePriceFilterChange('below-120')}>Below $120</button>

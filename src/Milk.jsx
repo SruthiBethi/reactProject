@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "./Store";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 function Milk() {
   const milkItems = useSelector((state) => state.products.milkItems);
@@ -63,7 +64,7 @@ function Milk() {
           src={item.image}
           alt={item.name}
           className="card-img-top"
-          style={{ height: "200px", width: "100%", objectFit: "cover" }}
+          style={{ width: "300px", height: "300px", objectFit: "cover" }} 
         />
         <div className="card-body">
           <h5 className="card-title">{item.name}</h5>
@@ -100,6 +101,7 @@ function Milk() {
           value={searchQuery}
           onChange={handleSearchChange}
         />
+        <h3 className='text-success'>Filter By Price Range</h3>
         <div className="btn-group" role="group" aria-label="Price Filter">
           <button className={`btn btn-outline-primary ${priceFilter === 'all' ? 'active' : ''}`} onClick={() => handlePriceFilterChange('all')}>All</button>
           <button className={`btn btn-outline-primary ${priceFilter === 'below-30' ? 'active' : ''}`} onClick={() => handlePriceFilterChange('below-30')}>Below $30</button>

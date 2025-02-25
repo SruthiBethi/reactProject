@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPurchaseDetails, clearCart, decrement, increment, remove } from "./Store";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { useNavigate } from "react-router-dom";
 
 function Cart() {

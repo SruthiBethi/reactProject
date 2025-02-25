@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { login } from './Store';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function Login() {
@@ -15,7 +16,7 @@ function Login() {
     let loginCheck = () => {
         if (username.current.value === "Sruthi" && password.current.value === "Sruthi@123") {
             dispatch(login(username.current.value));
-            navigate("/home");
+            navigate("/Cart");
         } else {
             alert("Your Credentials Are Wrong. Check Once!");
         }

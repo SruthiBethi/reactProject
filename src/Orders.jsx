@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 function Orders() {
   const purchaseHistory = useSelector((state) => state.purchasDetails);
@@ -21,12 +22,14 @@ function Orders() {
             <strong>Subtotal</strong>
           </li>
           {purchase.items.map((item, itemIndex) => (
-            <li key={itemIndex} className="list-group-item d-flex justify-content-between">
-              <span>{item.name}</span>
-              <span>${item.price}</span>
-              <span>{item.quantity}</span>
-              <span>${(item.price * item.quantity).toFixed(2)}</span>
-            </li>
+            <div className="d-flex align-items-center">
+          <img src={item.image}
+          alt={item.name}
+          className="me-3"
+          style={{width:"50px", height:"50px", objectFit:"cover", borderRadius:"5px"}}
+          />
+        <strong>{item.name}</strong> - <span className="text-muted">${item.price}</span>-{item.quantity}-<span>${item.price*item.quantity}</span>
+      </div>
           ))}
         </ul>
         <div className="d-flex justify-content-center mt-3">
