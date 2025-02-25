@@ -3,14 +3,13 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 function Contact() {
   return (
-    <div className="container-fluid mt-5 d-flex justify-content-center align-items-center">
-      <div className="row w-100 justify-content-center">
-        <div className="col-12 text-center mb-4">
-          <h2 className="text-primary">Contact Us</h2>
-        </div>
+    <div className="container mt-5">
+      {/* Header Section */}
+      <h2 className="text-primary text-center mb-4">Contact Us</h2>
 
-        {/* Contact Information Section */}
-        <div className="col-12 col-md-8 col-lg-6 p-4 text-center bg-light rounded shadow">
+      {/* Contact Information */}
+      <div className="row justify-content-center">
+        <div className="col-md-8 col-lg-6 p-4 text-center bg-light rounded shadow-sm">
           <h4 className="text-success">Email Us</h4>
           <p className="lead text-dark">
             For any inquiries or support, feel free to reach out to us:
@@ -18,9 +17,7 @@ function Contact() {
           <ul className="list-unstyled">
             <li>
               <strong className="text-success">Email:</strong>{' '}
-              <a href="mailto:support@localmart.com" className="text-decoration-none">
-                support@localmart.com
-              </a>
+              <a href="mailto:support@localmart.com" className="text-decoration-none">support@localmart.com</a>
             </li>
             <li>
               <strong>Phone:</strong> +1 (123) 456-7890
