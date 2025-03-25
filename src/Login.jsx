@@ -25,7 +25,7 @@ function Login() {
     return (
         <div className="container-fluid d-flex justify-content-center align-items-center vh-100">
             <div className="row w-100 justify-content-center">
-                <div className="col-lg-10 col-md-6 col-sm-8 col-10">
+                <div className="col-lg-10 col-md-10 col-sm-8 col-10">
                     <div className="card p-4 shadow-lg">
                         {/* Heading with custom color */}
                         <h2 className="text-center mb-4 text-info">Login</h2>
@@ -42,7 +42,7 @@ function Login() {
                                     className="form-control" 
                                     id="username" 
                                     ref={username} 
-                                    placeholder="Enter your username" 
+                                    placeholder="username" 
                                 />
                             </div>
                         </div>
@@ -59,7 +59,7 @@ function Login() {
                                     className="form-control" 
                                     id="password" 
                                     ref={password} 
-                                    placeholder="Enter your password" 
+                                    placeholder="password" 
                                 />
                             </div>
                         </div>
